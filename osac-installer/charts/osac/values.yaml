@@ -50,7 +50,7 @@ operator:
   enabled: true
   image:
     repository: ghcr.io/osac-project/osac-operator
-    tag: latest  # PLACEHOLDER -- overwritten at release time by publish-charts.yaml
+    tag: sha-628c078
     pullPolicy: Always
   replicaCount: 1
   resources:
@@ -93,7 +93,7 @@ service:
   # [REQUIRED] Hostname for the internal API Route (e.g. fulfillment-internal-api-osac.apps.mycluster.example.com)
   internalHostname: ""
   images:
-    service: ghcr.io/osac-project/fulfillment-service:latest  # PLACEHOLDER -- overwritten at release time by publish-charts.yaml
+    service: ghcr.io/osac-project/fulfillment-service:sha-628c078
     envoy: ghcr.io/osac-project/envoy:v1.33.0
   certs:
     issuerRef:
@@ -169,7 +169,7 @@ aap:
       imagePullPolicy: IfNotPresent
   bootstrap:
     enabled: true
-    image: ghcr.io/osac-project/osac-aap:latest  # PLACEHOLDER -- overwritten at release time by publish-charts.yaml
+    image: ghcr.io/osac-project/osac-aap:sha-628c078
     backoffLimit: 15
     readinessConsecutiveSuccesses: 3
     gateway:
@@ -180,8 +180,8 @@ aap:
     manifestSecret: "config-as-code-manifest-ig"
     secret: "config-as-code-ig"
     eeImage: ""
-    projectGitUri: ""
-    projectGitBranch: ""
+    projectGitUri: https://github.com/rgolangh/osac
+    projectGitBranch: 628c0780c62e1bfbc1e3aa02413046026236cdf5
     importAgentsEnabled: false
     importBcmAgentsEnabled: false
   importAgents:
@@ -272,7 +272,7 @@ ui:
   log:
     level: info
   images:
-    ui: ghcr.io/osac-project/osac-ui:latest  # PLACEHOLDER -- overwritten at release time by publish-charts.yaml
+    ui: ghcr.io/osac-project/osac-ui:sha-7c90b73
 
 # --- Metering ---
 metering:
@@ -300,7 +300,7 @@ bmfCrds: {}
 bmf:
   image:
     repository: ghcr.io/osac-project/bare-metal-fulfillment-operator
-    tag: latest  # PLACEHOLDER -- overwritten at release time by publish-charts.yaml
+    tag: sha-628c078
     pullPolicy: Always
   replicaCount: 1
   resources:
